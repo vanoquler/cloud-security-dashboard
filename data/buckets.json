@@ -1,0 +1,12 @@
+[
+    {
+        "name": "customer-data",
+        "public": true,
+        "encrypted": false
+    },
+    {
+        "name": "backup-storage",
+        "public": false,
+        "encrypted": true
+    }
+]

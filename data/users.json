@@ -1,0 +1,12 @@
+[
+    {
+        "username": "admin",
+        "mfa_enabled": false,
+        "role": "Administrator"
+    },
+    {
+        "username": "vansh",
+        "mfa_enabled": true,
+        "role": "User"
+    }
+]
