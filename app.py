@@ -1,3 +1,4 @@
+import plotly.express as px
 import streamlit as st
 
 from scanners.iam_scanner import scan_users
@@ -13,7 +14,15 @@ all_findings = iam_findings + bucket_findings
 st.subheader("Security Findings")
 
 for finding in all_findings:
-    st.warning(finding)
+
+    if finding["severity"] == "High":
+        st.error(f"🔴 {finding['issue']}")
+
+    elif finding["severity"] == "Medium":
+        st.warning(f"🟡 {finding['issue']}")
+
+    else:
+        st.success(f"🟢 {finding['issue']}")
 
 score = max(0, 100 - (len(all_findings) * 10))
 

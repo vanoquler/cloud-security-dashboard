@@ -10,13 +10,15 @@ def scan_buckets():
     for bucket in buckets:
 
         if bucket["public"]:
-            findings.append(
-                f"Bucket {bucket['name']} is public"
-            )
+            findings.append({
+                "issue": f"Bucket {bucket['name']} is public",
+                "severity": "High"
+            })
 
         if not bucket["encrypted"]:
-            findings.append(
-                f"Bucket {bucket['name']} is not encrypted"
-            )
+            findings.append({
+                "issue": f"Bucket {bucket['name']} is not encrypted",
+                "severity": "Medium"
+            })
 
     return findings

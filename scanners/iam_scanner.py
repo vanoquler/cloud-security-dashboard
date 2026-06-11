@@ -10,13 +10,15 @@ def scan_users():
     for user in users:
 
         if not user["mfa_enabled"]:
-            findings.append(
-                f"MFA disabled for {user['username']}"
-            )
+            findings.append({
+                "issue": f"MFA disabled for {user['username']}",
+                "severity": "High"
+            })
 
         if user["role"] == "Administrator":
-            findings.append(
-                f"Admin privileges assigned to {user['username']}"
-            )
+            findings.append({
+                "issue": f"Admin privileges assigned to {user['username']}",
+                "severity": "Medium"
+            })
 
     return findings
